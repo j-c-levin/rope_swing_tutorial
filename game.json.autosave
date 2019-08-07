@@ -156,19 +156,19 @@
       },
       {
         "alwaysLoaded": false,
-        "file": "NewObject-1-4.png",
+        "file": "NewObject-1-5.png",
         "kind": "image",
         "metadata": "",
-        "name": "NewObject-1-4.png",
+        "name": "NewObject-1-5.png",
         "smoothed": true,
         "userAdded": true
       },
       {
         "alwaysLoaded": false,
-        "file": "NewObject-1-5.png",
+        "file": "NewObject-1-4.png",
         "kind": "image",
         "metadata": "",
-        "name": "NewObject-1-5.png",
+        "name": "NewObject-1-4.png",
         "smoothed": true,
         "userAdded": true
       },
@@ -180,6 +180,51 @@
         "name": "rope_3-1-0.png",
         "smoothed": true,
         "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "rope_4-1-0.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "rope_4-1-0.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "rope_4-1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "rope_4-1.png",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "rope_4-1-1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "rope_4-1-1.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "swinging_player-1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "swinging_player-1.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "swinging_player-1-0.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "swinging_player-1-0.png",
+        "smoothed": true,
+        "userAdded": false
       }
     ],
     "resourceFolders": []
@@ -217,7 +262,7 @@
       "objectsGroups": [],
       "variables": [
         {
-          "name": "current_rope",
+          "name": "player_joint",
           "value": ""
         }
       ],
@@ -230,8 +275,8 @@
           "locked": false,
           "name": "rope",
           "width": 0,
-          "x": 401,
-          "y": 157,
+          "x": 423,
+          "y": 75,
           "zOrder": 1,
           "numberProperties": [],
           "stringProperties": [],
@@ -239,6 +284,10 @@
             {
               "name": "angle_limit",
               "value": "10"
+            },
+            {
+              "name": "segment_separation",
+              "value": "1"
             }
           ]
         }
@@ -271,9 +320,9 @@
               "polygonOrigin": "Center",
               "vertices": [],
               "density": 1,
-              "friction": 0.3,
-              "restitution": 0.1,
-              "linearDamping": 0.1,
+              "friction": 0,
+              "restitution": 0,
+              "linearDamping": 1,
               "angularDamping": 0.1,
               "gravityScale": 1,
               "layers": 1,
@@ -301,7 +350,7 @@
                       ],
                       "originPoint": {
                         "name": "origine",
-                        "x": 3.19995,
+                        "x": 15,
                         "y": -7.59999
                       },
                       "centerPoint": {
@@ -340,9 +389,9 @@
               "polygonOrigin": "Center",
               "vertices": [],
               "density": 1,
-              "friction": 0.3,
-              "restitution": 0.1,
-              "linearDamping": 0.9,
+              "friction": 0,
+              "restitution": 0,
+              "linearDamping": 1,
               "angularDamping": 0.1,
               "gravityScale": 1,
               "layers": 1,
@@ -409,9 +458,9 @@
               "polygonOrigin": "Center",
               "vertices": [],
               "density": 1,
-              "friction": 0.3,
-              "restitution": 0.1,
-              "linearDamping": 0.9,
+              "friction": 0,
+              "restitution": 0,
+              "linearDamping": 1,
               "angularDamping": 0.1,
               "gravityScale": 1,
               "layers": 1,
@@ -434,12 +483,298 @@
                         {
                           "name": "attach",
                           "x": 15,
-                          "y": 60
+                          "y": 30
                         }
                       ],
                       "originPoint": {
                         "name": "origine",
                         "x": 15,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "rope_4",
+          "tags": "",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "behaviors": [
+            {
+              "name": "Physics2",
+              "type": "Physics2::Physics2Behavior",
+              "bodyType": "Dynamic",
+              "bullet": false,
+              "fixedRotation": false,
+              "canSleep": true,
+              "shape": "Box",
+              "shapeDimensionA": 0,
+              "shapeDimensionB": 0,
+              "shapeOffsetX": 0,
+              "shapeOffsetY": 0,
+              "polygonOrigin": "Center",
+              "vertices": [],
+              "density": 1,
+              "friction": 0,
+              "restitution": 0,
+              "linearDamping": 1,
+              "angularDamping": 0.1,
+              "gravityScale": 1,
+              "layers": 1,
+              "masks": 2
+            }
+          ],
+          "animations": [
+            {
+              "name": "rope_4",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "rope_4-1-0.png",
+                      "points": [
+                        {
+                          "name": "attach",
+                          "x": 15,
+                          "y": 30
+                        }
+                      ],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 15,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "rope_5",
+          "tags": "",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "behaviors": [
+            {
+              "name": "Physics2",
+              "type": "Physics2::Physics2Behavior",
+              "bodyType": "Dynamic",
+              "bullet": false,
+              "fixedRotation": false,
+              "canSleep": true,
+              "shape": "Box",
+              "shapeDimensionA": 0,
+              "shapeDimensionB": 0,
+              "shapeOffsetX": 0,
+              "shapeOffsetY": 0,
+              "polygonOrigin": "Center",
+              "vertices": [],
+              "density": 1,
+              "friction": 0,
+              "restitution": 0,
+              "linearDamping": 1,
+              "angularDamping": 0.1,
+              "gravityScale": 1,
+              "layers": 1,
+              "masks": 2
+            }
+          ],
+          "animations": [
+            {
+              "name": "rope_4",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "rope_4-1.png",
+                      "points": [
+                        {
+                          "name": "attach",
+                          "x": 15,
+                          "y": 30
+                        }
+                      ],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 15,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "rope_6",
+          "tags": "",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "behaviors": [
+            {
+              "name": "Physics2",
+              "type": "Physics2::Physics2Behavior",
+              "bodyType": "Dynamic",
+              "bullet": false,
+              "fixedRotation": false,
+              "canSleep": true,
+              "shape": "Box",
+              "shapeDimensionA": 0,
+              "shapeDimensionB": 0,
+              "shapeOffsetX": 0,
+              "shapeOffsetY": 0,
+              "polygonOrigin": "Center",
+              "vertices": [],
+              "density": 1,
+              "friction": 0,
+              "restitution": 0,
+              "linearDamping": 1,
+              "angularDamping": 0.1,
+              "gravityScale": 1,
+              "layers": 1,
+              "masks": 2
+            }
+          ],
+          "animations": [
+            {
+              "name": "rope_4",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "rope_4-1-1.png",
+                      "points": [
+                        {
+                          "name": "attach",
+                          "x": 15,
+                          "y": 30
+                        }
+                      ],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 15,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "swinging_player",
+          "tags": "",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [
+            {
+              "name": "swing_direction",
+              "value": ""
+            }
+          ],
+          "behaviors": [
+            {
+              "name": "Physics2",
+              "type": "Physics2::Physics2Behavior",
+              "bodyType": "Dynamic",
+              "bullet": false,
+              "fixedRotation": false,
+              "canSleep": true,
+              "shape": "Box",
+              "shapeDimensionA": 0,
+              "shapeDimensionB": 0,
+              "shapeOffsetX": 0,
+              "shapeOffsetY": 0,
+              "polygonOrigin": "Center",
+              "vertices": [],
+              "density": 1,
+              "friction": 0.3,
+              "restitution": 0.1,
+              "linearDamping": 0.1,
+              "angularDamping": 0.1,
+              "gravityScale": 1,
+              "layers": 2,
+              "masks": 1
+            }
+          ],
+          "animations": [
+            {
+              "name": "swinging_player",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.00001,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "swinging_player-1-0.png",
+                      "points": [
+                        {
+                          "name": "attach_right",
+                          "x": 50,
+                          "y": 15
+                        },
+                        {
+                          "name": "attach_left",
+                          "x": -20,
+                          "y": 15
+                        }
+                      ],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
                         "y": 0
                       },
                       "centerPoint": {
@@ -503,106 +838,584 @@
                     ""
                   ],
                   "subInstructions": []
-                },
+                }
+              ],
+              "events": [
                 {
-                  "type": {
-                    "inverted": false,
-                    "value": "Create"
-                  },
-                  "parameters": [
-                    "",
-                    "rope_2",
-                    "rope.X()",
-                    "rope.Y() + rope.Variable(segment_separation)",
-                    ""
+                  "disabled": false,
+                  "folded": false,
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [],
+                  "actions": [
+                    {
+                      "type": {
+                        "inverted": false,
+                        "value": "Create"
+                      },
+                      "parameters": [
+                        "",
+                        "rope_2",
+                        "rope.X()",
+                        "rope.Y() ",
+                        ""
+                      ],
+                      "subInstructions": []
+                    },
+                    {
+                      "type": {
+                        "inverted": false,
+                        "value": "ChangePlan"
+                      },
+                      "parameters": [
+                        "rope_2",
+                        "=",
+                        "2"
+                      ],
+                      "subInstructions": []
+                    },
+                    {
+                      "type": {
+                        "inverted": false,
+                        "value": "Physics2::AddRevoluteJointBetweenTwoBodies"
+                      },
+                      "parameters": [
+                        "rope",
+                        "Physics2",
+                        "rope.PointX(\"attach\")",
+                        "rope.PointY(\"attach\")",
+                        "rope_2",
+                        "rope_2.X()",
+                        "rope_2.Y()",
+                        "yes",
+                        "0",
+                        "rope.Variable(angle_limit) * -1",
+                        "rope.Variable(angle_limit)",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""
+                      ],
+                      "subInstructions": []
+                    }
                   ],
-                  "subInstructions": []
+                  "events": []
                 },
+                {
+                  "disabled": false,
+                  "folded": false,
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [],
+                  "actions": [
+                    {
+                      "type": {
+                        "inverted": false,
+                        "value": "Create"
+                      },
+                      "parameters": [
+                        "",
+                        "rope_3",
+                        "rope.X()",
+                        "rope.Y()",
+                        ""
+                      ],
+                      "subInstructions": []
+                    },
+                    {
+                      "type": {
+                        "inverted": false,
+                        "value": "ChangePlan"
+                      },
+                      "parameters": [
+                        "rope_3",
+                        "=",
+                        "3"
+                      ],
+                      "subInstructions": []
+                    },
+                    {
+                      "type": {
+                        "inverted": false,
+                        "value": "Physics2::AddRevoluteJointBetweenTwoBodies"
+                      },
+                      "parameters": [
+                        "rope_2",
+                        "Physics2",
+                        "rope_2.PointX(\"attach\")",
+                        "rope_2.PointY(\"attach\")",
+                        "rope_3",
+                        "rope_3.X()",
+                        "rope_3.Y()",
+                        "yes",
+                        "0",
+                        "rope.Variable(angle_limit) * -1",
+                        "rope.Variable(angle_limit)",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""
+                      ],
+                      "subInstructions": []
+                    }
+                  ],
+                  "events": []
+                },
+                {
+                  "disabled": false,
+                  "folded": false,
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [],
+                  "actions": [
+                    {
+                      "type": {
+                        "inverted": false,
+                        "value": "Create"
+                      },
+                      "parameters": [
+                        "",
+                        "rope_4",
+                        "rope.X()",
+                        "rope.Y() ",
+                        ""
+                      ],
+                      "subInstructions": []
+                    },
+                    {
+                      "type": {
+                        "inverted": false,
+                        "value": "ChangePlan"
+                      },
+                      "parameters": [
+                        "rope_4",
+                        "=",
+                        "4"
+                      ],
+                      "subInstructions": []
+                    },
+                    {
+                      "type": {
+                        "inverted": false,
+                        "value": "Physics2::AddRevoluteJointBetweenTwoBodies"
+                      },
+                      "parameters": [
+                        "rope_3",
+                        "Physics2",
+                        "rope.PointX(\"attach\")",
+                        "rope.PointY(\"attach\")",
+                        "rope_4",
+                        "rope_2.X()",
+                        "rope_2.Y()",
+                        "yes",
+                        "0",
+                        "rope.Variable(angle_limit) * -1",
+                        "rope.Variable(angle_limit)",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""
+                      ],
+                      "subInstructions": []
+                    }
+                  ],
+                  "events": []
+                },
+                {
+                  "disabled": false,
+                  "folded": false,
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [],
+                  "actions": [
+                    {
+                      "type": {
+                        "inverted": false,
+                        "value": "Create"
+                      },
+                      "parameters": [
+                        "",
+                        "rope_5",
+                        "rope.X()",
+                        "rope.Y() ",
+                        ""
+                      ],
+                      "subInstructions": []
+                    },
+                    {
+                      "type": {
+                        "inverted": false,
+                        "value": "ChangePlan"
+                      },
+                      "parameters": [
+                        "rope_5",
+                        "=",
+                        "5"
+                      ],
+                      "subInstructions": []
+                    },
+                    {
+                      "type": {
+                        "inverted": false,
+                        "value": "Physics2::AddRevoluteJointBetweenTwoBodies"
+                      },
+                      "parameters": [
+                        "rope_4",
+                        "Physics2",
+                        "rope.PointX(\"attach\")",
+                        "rope.PointY(\"attach\")",
+                        "rope_5",
+                        "rope_2.X()",
+                        "rope_2.Y()",
+                        "yes",
+                        "0",
+                        "rope.Variable(angle_limit) * -1",
+                        "rope.Variable(angle_limit)",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""
+                      ],
+                      "subInstructions": []
+                    }
+                  ],
+                  "events": []
+                },
+                {
+                  "disabled": false,
+                  "folded": false,
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [],
+                  "actions": [
+                    {
+                      "type": {
+                        "inverted": false,
+                        "value": "Create"
+                      },
+                      "parameters": [
+                        "",
+                        "rope_6",
+                        "rope.X()",
+                        "rope.Y()",
+                        ""
+                      ],
+                      "subInstructions": []
+                    },
+                    {
+                      "type": {
+                        "inverted": false,
+                        "value": "ChangePlan"
+                      },
+                      "parameters": [
+                        "rope_6",
+                        "=",
+                        "6"
+                      ],
+                      "subInstructions": []
+                    },
+                    {
+                      "type": {
+                        "inverted": false,
+                        "value": "Physics2::AddRevoluteJointBetweenTwoBodies"
+                      },
+                      "parameters": [
+                        "rope_5",
+                        "Physics2",
+                        "rope.PointX(\"attach\")",
+                        "rope.PointY(\"attach\")",
+                        "rope_6",
+                        "rope_2.X()",
+                        "rope_2.Y()",
+                        "yes",
+                        "0",
+                        "rope.Variable(angle_limit) * -1",
+                        "rope.Variable(angle_limit)",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""
+                      ],
+                      "subInstructions": []
+                    }
+                  ],
+                  "events": []
+                },
+                {
+                  "disabled": false,
+                  "folded": false,
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [],
+                  "actions": [
+                    {
+                      "type": {
+                        "inverted": false,
+                        "value": "Create"
+                      },
+                      "parameters": [
+                        "",
+                        "swinging_player",
+                        "rope_6.X() - 60",
+                        "rope_6.Y()",
+                        ""
+                      ],
+                      "subInstructions": []
+                    },
+                    {
+                      "type": {
+                        "inverted": false,
+                        "value": "Physics2::AddWeldJoint"
+                      },
+                      "parameters": [
+                        "swinging_player",
+                        "Physics2",
+                        "swinging_player.PointX(\"attach_right\")",
+                        "swinging_player.PointY(\"attach_right\")",
+                        "rope_6",
+                        "rope_6.PointX(\"Center\")",
+                        "rope_6.PointY(\"Center\")",
+                        "0",
+                        "50",
+                        "10",
+                        "",
+                        "player_joint"
+                      ],
+                      "subInstructions": []
+                    },
+                    {
+                      "type": {
+                        "inverted": false,
+                        "value": "ModVarObjetTxt"
+                      },
+                      "parameters": [
+                        "swinging_player",
+                        "swing_direction",
+                        "=",
+                        "\"right\""
+                      ],
+                      "subInstructions": []
+                    }
+                  ],
+                  "events": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "disabled": false,
+          "folded": false,
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "KeyPressed"
+              },
+              "parameters": [
+                "",
+                "Left"
+              ],
+              "subInstructions": []
+            }
+          ],
+          "actions": [],
+          "events": [
+            {
+              "disabled": false,
+              "folded": false,
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
                 {
                   "type": {
                     "inverted": false,
-                    "value": "ChangePlan"
+                    "value": "VarObjetTxt"
                   },
                   "parameters": [
-                    "rope_2",
+                    "swinging_player",
+                    "swing_direction",
                     "=",
-                    "2"
+                    "\"right\""
                   ],
                   "subInstructions": []
-                },
+                }
+              ],
+              "actions": [
                 {
                   "type": {
                     "inverted": false,
-                    "value": "Physics2::AddRevoluteJointBetweenTwoBodies"
+                    "value": "Physics2::Remove joint"
                   },
                   "parameters": [
-                    "rope",
+                    "swinging_player",
                     "Physics2",
-                    "rope.PointX(\"attach\")",
-                    "rope.PointY(\"attach\")",
-                    "rope_2",
-                    "rope_2.X()",
-                    "rope_2.Y()",
-                    "yes",
+                    "Variable(player_joint)"
+                  ],
+                  "subInstructions": []
+                },
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "Physics2::AddWeldJoint"
+                  },
+                  "parameters": [
+                    "swinging_player",
+                    "Physics2",
+                    "swinging_player.PointX(\"attach_left\")",
+                    "swinging_player.PointY(\"attach_left\")",
+                    "rope_6",
+                    "rope_6.PointX(\"Center\")",
+                    "rope_6.PointY(\"Center\")",
                     "0",
-                    "rope.Variable(angle_limit) * -1",
-                    "rope.Variable(angle_limit)",
+                    "50",
+                    "10",
                     "",
-                    "",
-                    "",
-                    "",
-                    ""
+                    "player_joint"
                   ],
                   "subInstructions": []
                 },
                 {
                   "type": {
                     "inverted": false,
-                    "value": "Create"
+                    "value": "ModVarObjetTxt"
                   },
                   "parameters": [
-                    "",
-                    "rope_3",
-                    "rope.X()",
-                    "rope.Y() + (rope.Variable(segment_separation) * 2)",
-                    ""
-                  ],
-                  "subInstructions": []
-                },
-                {
-                  "type": {
-                    "inverted": false,
-                    "value": "ChangePlan"
-                  },
-                  "parameters": [
-                    "rope_3",
+                    "swinging_player",
+                    "swing_direction",
                     "=",
-                    "3"
+                    "\"left\""
+                  ],
+                  "subInstructions": []
+                }
+              ],
+              "events": []
+            },
+            {
+              "disabled": false,
+              "folded": false,
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [],
+              "actions": [
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "Physics2::ApplyTorque"
+                  },
+                  "parameters": [
+                    "swinging_player",
+                    "Physics2",
+                    "1"
+                  ],
+                  "subInstructions": []
+                }
+              ],
+              "events": []
+            }
+          ]
+        },
+        {
+          "disabled": false,
+          "folded": false,
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "KeyPressed"
+              },
+              "parameters": [
+                "",
+                "Right"
+              ],
+              "subInstructions": []
+            }
+          ],
+          "actions": [],
+          "events": [
+            {
+              "disabled": false,
+              "folded": false,
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "VarObjetTxt"
+                  },
+                  "parameters": [
+                    "swinging_player",
+                    "swing_direction",
+                    "=",
+                    "\"left\""
+                  ],
+                  "subInstructions": []
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "Physics2::Remove joint"
+                  },
+                  "parameters": [
+                    "swinging_player",
+                    "Physics2",
+                    "Variable(player_joint)"
                   ],
                   "subInstructions": []
                 },
                 {
                   "type": {
                     "inverted": false,
-                    "value": "Physics2::AddRevoluteJointBetweenTwoBodies"
+                    "value": "Physics2::AddWeldJoint"
                   },
                   "parameters": [
-                    "rope_2",
+                    "swinging_player",
                     "Physics2",
-                    "rope_2.PointX(\"attach\")",
-                    "rope_2.PointY(\"attach\")",
-                    "rope_3",
-                    "rope_3.X()",
-                    "rope_3.Y()",
-                    "yes",
+                    "swinging_player.PointX(\"attach_right\")",
+                    "swinging_player.PointY(\"attach_right\")",
+                    "rope_6",
+                    "rope_6.PointX(\"Center\")",
+                    "rope_6.PointY(\"Center\")",
                     "0",
-                    "rope.Variable(angle_limit) * -1",
-                    "rope.Variable(angle_limit)",
+                    "50",
+                    "10",
                     "",
-                    "",
-                    "",
-                    "",
-                    ""
+                    "player_joint"
+                  ],
+                  "subInstructions": []
+                },
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "ModVarObjetTxt"
+                  },
+                  "parameters": [
+                    "swinging_player",
+                    "swing_direction",
+                    "=",
+                    "\"right\""
+                  ],
+                  "subInstructions": []
+                }
+              ],
+              "events": []
+            },
+            {
+              "disabled": false,
+              "folded": false,
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [],
+              "actions": [
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "Physics2::ApplyTorque"
+                  },
+                  "parameters": [
+                    "swinging_player",
+                    "Physics2",
+                    "-1"
                   ],
                   "subInstructions": []
                 }
