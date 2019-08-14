@@ -1338,7 +1338,7 @@
         },
         {
           "disabled": false,
-          "folded": false,
+          "folded": true,
           "type": "BuiltinCommonInstructions::Standard",
           "conditions": [
             {
@@ -1454,7 +1454,7 @@
         },
         {
           "disabled": false,
-          "folded": false,
+          "folded": true,
           "type": "BuiltinCommonInstructions::Standard",
           "conditions": [
             {
@@ -1676,9 +1676,33 @@
                     "value": "Physics2::Remove joint"
                   },
                   "parameters": [
-                    "rope_6",
+                    "player",
                     "Physics2",
                     "Variable(player_joint)"
+                  ],
+                  "subInstructions": []
+                },
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "ActivateBehavior"
+                  },
+                  "parameters": [
+                    "player",
+                    "Physics2",
+                    "no"
+                  ],
+                  "subInstructions": []
+                },
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "ActivateBehavior"
+                  },
+                  "parameters": [
+                    "player",
+                    "PlatformerObject",
+                    "yes"
                   ],
                   "subInstructions": []
                 }
@@ -1703,23 +1727,7 @@
                       "subInstructions": []
                     }
                   ],
-                  "actions": [
-                    {
-                      "type": {
-                        "inverted": false,
-                        "value": "Physics2::ApplyImpulse"
-                      },
-                      "parameters": [
-                        "player",
-                        "Physics2",
-                        "-0.5",
-                        "0.2",
-                        "player.X()",
-                        "player.Y()"
-                      ],
-                      "subInstructions": []
-                    }
-                  ],
+                  "actions": [],
                   "events": []
                 },
                 {
@@ -1741,23 +1749,7 @@
                       "subInstructions": []
                     }
                   ],
-                  "actions": [
-                    {
-                      "type": {
-                        "inverted": false,
-                        "value": "Physics2::ApplyImpulse"
-                      },
-                      "parameters": [
-                        "player",
-                        "Physics2",
-                        "0.5",
-                        "0.2",
-                        "player.X()",
-                        "player.Y()"
-                      ],
-                      "subInstructions": []
-                    }
-                  ],
+                  "actions": [],
                   "events": []
                 }
               ]
@@ -1814,36 +1806,36 @@
             {
               "type": {
                 "inverted": false,
-                "value": "ActivateBehavior"
-              },
-              "parameters": [
-                "player",
-                "PlatformerObject",
-                "yes"
-              ],
-              "subInstructions": []
-            },
-            {
-              "type": {
-                "inverted": false,
-                "value": "ActivateBehavior"
-              },
-              "parameters": [
-                "player",
-                "Physics2",
-                "no"
-              ],
-              "subInstructions": []
-            },
-            {
-              "type": {
-                "inverted": false,
                 "value": "Physics2::SetFixedRotation"
               },
               "parameters": [
                 "player",
                 "Physics2",
                 "no"
+              ],
+              "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "ActivateBehavior"
+              },
+              "parameters": [
+                "player",
+                "Physics2",
+                "no"
+              ],
+              "subInstructions": []
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "ActivateBehavior"
+              },
+              "parameters": [
+                "player",
+                "PlatformerObject",
+                "yes"
               ],
               "subInstructions": []
             }
@@ -1904,24 +1896,11 @@
             {
               "type": {
                 "inverted": false,
-                "value": "ModVarObjetTxt"
-              },
-              "parameters": [
-                "player",
-                "is_swinging",
-                "=",
-                "\"true\""
-              ],
-              "subInstructions": []
-            },
-            {
-              "type": {
-                "inverted": false,
                 "value": "ActivateBehavior"
               },
               "parameters": [
                 "player",
-                "Physics2",
+                "PlatformerObject",
                 "yes"
               ],
               "subInstructions": []
@@ -1933,66 +1912,8 @@
               },
               "parameters": [
                 "player",
-                "PlatformerObject",
-                "no"
-              ],
-              "subInstructions": []
-            },
-            {
-              "type": {
-                "inverted": false,
-                "value": "Physics2::SetFixedRotation"
-              },
-              "parameters": [
-                "player",
                 "Physics2",
                 "no"
-              ],
-              "subInstructions": []
-            },
-            {
-              "type": {
-                "inverted": false,
-                "value": "ModVarObjetTxt"
-              },
-              "parameters": [
-                "player",
-                "swing_direction",
-                "=",
-                "\"right\""
-              ],
-              "subInstructions": []
-            },
-            {
-              "type": {
-                "inverted": false,
-                "value": "Physics2::Remove joint"
-              },
-              "parameters": [
-                "player",
-                "Physics2",
-                "Variable(player_joint)"
-              ],
-              "subInstructions": []
-            },
-            {
-              "type": {
-                "inverted": false,
-                "value": "Physics2::AddWeldJoint"
-              },
-              "parameters": [
-                "player",
-                "Physics2",
-                "player.PointX(\"attach_right\")",
-                "player.PointY(\"attach_right\")",
-                "rope_6",
-                "rope_6.PointX(\"Center\")",
-                "rope_6.PointY(\"Center\")",
-                "0",
-                "50",
-                "10",
-                "",
-                "player_joint"
               ],
               "subInstructions": []
             }
